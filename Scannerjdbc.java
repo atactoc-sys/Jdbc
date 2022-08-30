@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
-
 public class Scannerjdbc {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -21,11 +19,11 @@ public class Scannerjdbc {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/daku","root","root");
 			PreparedStatement stm;
 			String sql = "insert into CUSTOMER values(8,?,?)";
-			stm = conn.prepareStatement(sql)
+			stm = conn.prepareStatement(sql);
 			stm.setString(2,Fname);
 			stm.setString(3,Lname);
 			stm.setString(1,cust_id);
-			stm.execute()
+			stm.execute();
 			System.out.println("inserted successfully");
 			
 		} catch (Exception e) {
